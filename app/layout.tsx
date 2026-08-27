@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Giro AÍ — Estoque parado vira oportunidade",
   description:
     "Cadastre seu estoque parado e conecte-se com lojistas interessados. Giro AÍ na Merco 2026.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

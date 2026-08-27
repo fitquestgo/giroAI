@@ -18,10 +18,10 @@ const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea, input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 const inputClass =
-  "mt-2 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-base text-[#1a1a1a] placeholder:text-gray-400 focus:border-[#2563eb] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20";
+  "mt-2 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20";
 
 const selectClass =
-  "mt-2 w-full appearance-none rounded-md border border-gray-300 bg-white bg-no-repeat px-4 py-3 pr-10 text-base text-[#1a1a1a] focus:border-[#2563eb] focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20";
+  "mt-2 w-full appearance-none rounded-md border border-gray-300 bg-white bg-no-repeat px-4 py-3 pr-10 text-base text-gray-900 focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20";
 
 // Seta customizada em SVG inline (data URI) para substituir o chevron nativo do navegador.
 const selectChevron = {
@@ -170,14 +170,14 @@ export function ProductFormModal({
         className="my-8 w-full max-w-md rounded-lg border border-gray-200 bg-white p-6 shadow-lg"
       >
         <div className="flex items-start justify-between gap-4">
-          <h2 id="cadastro-modal-title" className="text-xl font-bold tracking-tight text-[#1a1a1a]">
+          <h2 id="cadastro-modal-title" className="text-xl font-bold tracking-tight text-gray-900">
             Colocar produto pra girar
           </h2>
           <button
             type="button"
             onClick={onClose}
             aria-label="Fechar"
-            className="shrink-0 rounded-md p-1 text-[#525252] hover:text-[#1a1a1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb]"
+            className="shrink-0 rounded-md p-1 text-gray-700 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
           >
             <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden>
               <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
@@ -187,7 +187,7 @@ export function ProductFormModal({
 
         <form action={formAction} className="mt-5 flex flex-col gap-4">
           <div>
-            <label htmlFor="nome_produto" className="text-sm font-medium text-[#1a1a1a]">
+            <label htmlFor="nome_produto" className="text-sm font-medium text-gray-900">
               Nome do produto *
             </label>
             <input
@@ -203,7 +203,7 @@ export function ProductFormModal({
           </div>
 
           <div>
-            <label htmlFor="categoria_select" className="text-sm font-medium text-[#1a1a1a]">
+            <label htmlFor="categoria_select" className="text-sm font-medium text-gray-900">
               Categoria *
             </label>
             <select
@@ -238,7 +238,7 @@ export function ProductFormModal({
           </div>
 
           <div>
-            <label htmlFor="quantidade" className="text-sm font-medium text-[#1a1a1a]">
+            <label htmlFor="quantidade" className="text-sm font-medium text-gray-900">
               Quantidade *
             </label>
             <input
@@ -256,7 +256,7 @@ export function ProductFormModal({
           </div>
 
           <div>
-            <label htmlFor="preco_ou_faixa" className="text-sm font-medium text-[#1a1a1a]">
+            <label htmlFor="preco_ou_faixa" className="text-sm font-medium text-gray-900">
               Preço ou faixa de preço *
             </label>
             <input
@@ -271,7 +271,7 @@ export function ProductFormModal({
           </div>
 
           <div>
-            <label htmlFor="nome_empresa" className="text-sm font-medium text-[#1a1a1a]">
+            <label htmlFor="nome_empresa" className="text-sm font-medium text-gray-900">
               Nome da sua empresa *
             </label>
             <input
@@ -287,7 +287,7 @@ export function ProductFormModal({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label htmlFor="cidade" className="text-sm font-medium text-[#1a1a1a]">
+              <label htmlFor="cidade" className="text-sm font-medium text-gray-900">
                 Cidade
               </label>
               <input
@@ -300,7 +300,7 @@ export function ProductFormModal({
               <FieldError message={errors.cidade} />
             </div>
             <div>
-              <label htmlFor="contato" className="text-sm font-medium text-[#1a1a1a]">
+              <label htmlFor="contato" className="text-sm font-medium text-gray-900">
                 Contato
               </label>
               <input
@@ -315,7 +315,7 @@ export function ProductFormModal({
           </div>
 
           <div>
-            <label htmlFor="foto" className="text-sm font-medium text-[#1a1a1a]">
+            <label htmlFor="foto" className="text-sm font-medium text-gray-900">
               Foto do produto
             </label>
             <input
@@ -340,7 +340,7 @@ export function ProductFormModal({
           <button
             type="submit"
             disabled={isPending}
-            className="mt-2 w-full rounded-md bg-[#2563eb] px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2"
+            className="mt-2 w-full rounded-md bg-[var(--color-primary)] px-6 py-3 text-base font-semibold text-white shadow-md transition-colors hover:bg-[var(--color-primary-dark)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
           >
             {isPending ? "enviando…" : "cadastrar produto"}
           </button>

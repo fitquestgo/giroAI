@@ -4,12 +4,16 @@ import type { ReactNode } from "react";
 function Section({
   children,
   bordered = true,
+  className = "",
 }: {
   children: ReactNode;
   bordered?: boolean;
+  className?: string;
 }) {
   return (
-    <section className={`py-16 sm:py-20 ${bordered ? "border-t border-gray-200" : ""}`}>
+    <section
+      className={`py-16 sm:py-20 ${bordered ? "border-t border-gray-200" : ""} ${className}`}
+    >
       <div className="mx-auto max-w-5xl px-6">
         <div className="mx-auto max-w-2xl">{children}</div>
       </div>
@@ -40,15 +44,21 @@ const steps = [
   },
 ];
 
+const buttonPrimary =
+  "inline-flex items-center justify-center rounded-md bg-[var(--color-primary)] px-6 py-3 text-base font-semibold text-white shadow-md transition-colors hover:bg-[var(--color-primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2";
+
+const stepBadge =
+  "flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-secondary)] text-sm font-semibold text-white";
+
 export default function Home() {
   return (
     <div className="bg-white">
       {/* 1. O problema */}
       <Section bordered={false}>
-        <h1 className="text-3xl font-bold tracking-tight text-[#1a1a1a] sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Estoque parado custa dinheiro
         </h1>
-        <p className="mt-4 text-lg leading-relaxed text-[#525252]">
+        <p className="mt-4 text-lg leading-relaxed text-gray-700">
           Estoque parado não é só espaço ocupado na prateleira — é dinheiro que já saiu
           do seu bolso e ainda não voltou. Todo lojista tem produto que não gira:
           comprou certo, mas o mercado mudou, a estação passou, ou simplesmente não
@@ -58,10 +68,10 @@ export default function Home() {
 
       {/* 2. O que é o Giro AÍ */}
       <Section>
-        <h2 className="text-2xl font-bold tracking-tight text-[#1a1a1a] sm:text-3xl">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
           O que é o Giro AÍ
         </h2>
-        <p className="mt-4 text-lg leading-relaxed text-[#525252]">
+        <p className="mt-4 text-lg leading-relaxed text-gray-700">
           O Giro AÍ conecta lojistas que têm estoque parado a outros negócios
           interessados em comprar esse estoque rápido. Você informa o que está parado,
           o sistema identifica quem pode ter interesse, e a conexão acontece com
@@ -71,7 +81,7 @@ export default function Home() {
 
       {/* 3. A jornada completa */}
       <Section>
-        <h2 className="text-2xl font-bold tracking-tight text-[#1a1a1a] sm:text-3xl">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
           Como funciona, passo a passo
         </h2>
         <ol className="mt-8 flex flex-col gap-4">
@@ -80,11 +90,9 @@ export default function Home() {
               key={step.title}
               className="flex gap-4 rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
             >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2563eb] text-sm font-semibold text-white">
-                {index + 1}
-              </span>
-              <p className="text-base leading-relaxed text-[#525252]">
-                <span className="font-semibold text-[#1a1a1a]">{step.title}</span> —{" "}
+              <span className={stepBadge}>{index + 1}</span>
+              <p className="text-base leading-relaxed text-gray-700">
+                <span className="font-semibold text-gray-900">{step.title}</span> —{" "}
                 {step.description}
               </p>
             </li>
@@ -94,10 +102,10 @@ export default function Home() {
 
       {/* 4. Como a análise funciona */}
       <Section>
-        <h2 className="text-2xl font-bold tracking-tight text-[#1a1a1a] sm:text-3xl">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
           Nada de caixa-preta
         </h2>
-        <p className="mt-4 text-lg leading-relaxed text-[#525252]">
+        <p className="mt-4 text-lg leading-relaxed text-gray-700">
           Cada sugestão que você recebe vem com um motivo. Nada de &ldquo;confie em
           nós&rdquo;: você vê por que aquele item foi identificado como baixo giro —
           tempo parado, quantidade, categoria — e qual é a próxima ação sugerida. A
@@ -107,10 +115,10 @@ export default function Home() {
 
       {/* 5. Sobre consentimento e conexão */}
       <Section>
-        <h2 className="text-2xl font-bold tracking-tight text-[#1a1a1a] sm:text-3xl">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
           Você decide quando falar
         </h2>
-        <p className="mt-4 text-lg leading-relaxed text-[#525252]">
+        <p className="mt-4 text-lg leading-relaxed text-gray-700">
           Demonstrar interesse não libera contato automaticamente. A conexão só
           acontece quando as duas empresas confirmam que querem seguir em frente.
           Nenhum contato aparece publicamente antes disso — você decide quando e com
@@ -121,17 +129,14 @@ export default function Home() {
       {/* 6. Fechamento */}
       <Section>
         <div className="text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-[#1a1a1a] sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
             Seu estoque também pode estar parado por um motivo simples.
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-[#525252]">
+          <p className="mt-4 text-lg leading-relaxed text-gray-700">
             Dá uma olhada no que já está circulando por aqui.
           </p>
           <div className="mt-8">
-            <Link
-              href="/testar"
-              className="inline-flex items-center justify-center rounded-md bg-[#2563eb] px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] focus-visible:ring-offset-2"
-            >
+            <Link href="/testar" className={buttonPrimary}>
               ver produtos disponíveis
             </Link>
           </div>

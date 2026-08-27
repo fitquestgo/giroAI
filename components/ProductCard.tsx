@@ -38,11 +38,11 @@ export function ProductCard({ item }: { item: PublicStockItem }) {
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-semibold leading-snug text-[#1a1a1a]">{item.nome_produto}</h3>
           {item.is_demo ? (
-            <span className="shrink-0 rounded-full bg-gray-100 px-2 py-1 text-[11px] font-medium text-[#525252]">
+            <span className="shrink-0 rounded-full bg-gray-100 px-2 py-1 text-[11px] font-medium text-gray-700">
               exemplo
             </span>
           ) : isNew ? (
-            <span className="shrink-0 rounded-full bg-blue-50 px-2 py-1 text-[11px] font-medium text-[#2563eb]">
+            <span className="shrink-0 rounded-full bg-red-50 px-2 py-1 text-[11px] font-medium text-[var(--color-primary)]">
               novo
             </span>
           ) : null}

@@ -1,17 +1,27 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Header } from "@/components/Header";
+import { HeroSection } from "@/components/HeroSection";
+import { ProductFormModal } from "@/components/ProductFormModal";
+import { useRouter } from "next/navigation";
 
 function Section({
   children,
   bordered = true,
   className = "",
+  id = "",
 }: {
   children: ReactNode;
   bordered?: boolean;
   className?: string;
+  id?: string;
 }) {
   return (
     <section
+      id={id}
       className={`py-16 sm:py-20 ${bordered ? "border-t border-gray-200" : ""} ${className}`}
     >
       <div className="mx-auto max-w-5xl px-6">
@@ -51,8 +61,22 @@ const stepBadge =
   "flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-secondary)] text-sm font-semibold text-white";
 
 export default function Home() {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const router = useRouter();
+
+  function closeModal() {
+    setModalOpen(false);
+  }
+
+  function handleSuccess() {
+    setModalOpen(false);
+    router.refresh();
+  }
+
   return (
     <div className="bg-white">
+      <Header onOpenModal={() => setModalOpen(true)} />
+      <HeroSection onOpenModal={() => setModalOpen(true)} />
       {/* 1. O problema */}
       <Section bordered={false}>
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -80,7 +104,7 @@ export default function Home() {
       </Section>
 
       {/* 3. A jornada completa */}
-      <Section>
+      <Section id="como-funciona">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
           Como funciona, passo a passo
         </h2>
@@ -142,6 +166,8 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
+      {isModalOpen ? <ProductFormModal onClose={closeModal} onSuccess={handleSuccess} /> : null}
     </div>
   );
 }

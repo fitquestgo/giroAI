@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -rf giro-ai-scaffold)",
+      "Bash(npx --yes create-next-app@latest giro-ai-scaffold --typescript --tailwind --eslint --app --src-dir=false --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3411/ -o /tmp/claude-1000/-home-hericks-Projetos-giroAI/9969d36a-d275-4dd4-906a-368a57a1b136/scratchpad/lp.html)",
+      "Bash(curl -s http://localhost:3411/testar)",
+      "Bash(fuser 3411/tcp)",
+      "Bash(fuser -k 3411/tcp)",
+      "Bash(npm ls *)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx playwright *)",
+      "Bash(node /tmp/claude-1000/-home-hericks-Projetos-giroAI/9969d36a-d275-4dd4-906a-368a57a1b136/scratchpad/screenshot.mjs)"
+    ]
+  }
+}

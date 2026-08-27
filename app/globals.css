@@ -1,24 +1,94 @@
 @import "tailwindcss";
 
+/* Design Tokens — Identidade Visual Giro AÍ */
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
+  /* Primary Colors */
+  --color-primary: #EF3B36;        /* Vermelho (CTAs, accents) */
+  --color-primary-dark: #D63430;   /* Vermelho escuro (hover) */
+  --color-primary-light: #F5545E;  /* Vermelho claro */
+
+  /* Secondary Colors */
+  --color-secondary: #00A89A;      /* Turquesa (secondary accents, indicadores) */
+  --color-secondary-dark: #008878;
+  --color-secondary-light: #1ABC9C;
+
+  /* Neutrals */
+  --color-background: #ffffff;
+  --color-foreground: #1a1a1a;
+  --color-dark-bg: #0D0D0D;        /* Para hero/footer */
+  --color-gray-900: #1a1a1a;
+  --color-gray-700: #525252;
+  --color-gray-500: #767676;
+  --color-gray-200: #EFEFEF;
+  --color-gray-100: #F5F5F5;
+
+  /* Status Colors */
+  --color-success: #00A89A;
+  --color-error: #EF3B36;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+
+  /* Spacing Scale */
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-12: 3rem;     /* 48px */
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-gray-100: var(--color-gray-100);
+  --color-gray-200: var(--color-gray-200);
+  --color-gray-500: var(--color-gray-500);
+  --color-gray-700: var(--color-gray-700);
   --font-sans: var(--font-inter);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-base);
 }
 
-/* Remove os controles nativos do input[type=number] (setinhas do navegador)
-   — o teclado numérico (inputMode) já resolve isso em mobile. */
+/* Remove os controles nativos do input[type=number] */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
